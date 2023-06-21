@@ -54,15 +54,19 @@ gem install bundler
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 561F9B9CAC40B2F7
 
 # Save key
-sudo sh -c 'echo deb https://oss-binaries.phusionpassenger.com/apt/passenter bionic main > /etc/apt/sources.list.d/passenger.list'
+sudo sh -c 'echo deb https://oss-binaries.phusionpassenger.com/apt/passenger bionic main > /etc/apt/sources.list.d/passenger.list'
 
 # Update
-sudo apt update
+# sudo apt update
+
+# # # Install Ruby Version Manager # # #
+
+
+# # # Setup for nginx
 
 # Install NGINX
 sudo apt install -y nginx-extras libnginx-mod-http-passenter
 # ^ This will trigger nginx reload, this should allow the 'Welcome to NGINX' site
 
-
-
-# # # Install Ruby Version Manager # # #
+# No clue what this does yet
+if [ ! -f /etc/nginx/modules-enabled/50-mod-http-passenger.conf ]; then sudo ln -s /usr/share/nginx/modules-avalible/mod-http-passenger.load /etc/nginx/modules-enabled/50-mod-http-passenger.conf; fi
